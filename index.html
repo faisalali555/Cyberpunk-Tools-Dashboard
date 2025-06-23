@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ur">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -164,7 +164,7 @@
     <div class="container">
         <h1 class="main-title">Faisal Ali's Innovation Hub 💗</h1>
         <div class="project-grid" id="project-grid">
-            <!-- Project cards yahan JavaScript ke zariye add honge -->
+            <!-- Project cards will be dynamically added here by JavaScript -->
         </div>
     </div>
 
@@ -172,69 +172,73 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
 
     <script>
-        // --- YAHAAN APNE PROJECTS ADD YA CHANGE KAREIN --- //
-        // Har project ke liye, 'name' mein project ka naam, 'url' mein uska link,
-        // aur 'description' mein uske baare mein likhein.
+        // --- ADD OR CHANGE YOUR PROJECTS HERE --- //
+        // For each project, provide a 'name', its 'url', and a 'description'.
         const projects = [
             {
                 name: "Medication Tracker",
-                url: "https://faisalali555.github.io/Medication-Tracker-Web-App/", // Yahan apne project ka asal link daalein
+                url: "#", // Add your project's actual link here
                 description: "A web app to track your daily medications and schedules."
             },
             {
                 name: "Grocery Web App",
-                url: "https://faisalali555.github.io/Grocery-Web-App/", // Yahan apne project ka asal link daalein
+                url: "#", // Add your project's actual link here
                 description: "Manage your grocery lists smartly and efficiently."
             },
             {
                 name: "Glow Notes",
-                url: "https://faisalali555.github.io/Glow-Notes/", // Yahan apne project ka asal link daalein
+                url: "#", // Add your project's actual link here
                 description: "A simple and elegant note-taking app with a glow effect."
             },
             {
                 name: "The Aurora Calculators",
-                url: "https://faisalali555.github.io/The-Aurora-Calculators/", // Yahan apne project ka asal link daalein
+                url: "#", // Add your project's actual link here
                 description: "A collection of beautifully designed calculators for various needs."
+            },
+            {
+                name: "Digital Matrix Countdown",
+                url: "https://faisalali555.github.io/Digital-Matrix-Countdown/", // Add your project's actual link here
+                description: "A countdown timer with a cool, digital rain effect."
             }
-            // Naya project add karne ke liye, is jaisi line add karein:
-            // , { name: "Naya Project", url: "link-yahan.html", description: "Is project ki details." }
+            // To add a new project, add a line like this:
+            // , { name: "New Project", url: "link-here.html", description: "Details about this project." }
         ];
 
-        // --- ISKE NEECHAY CODE CHANGE KARNE KI ZAROORAT NAHIN --- //
+        // --- NO NEED TO CHANGE THE CODE BELOW THIS LINE --- //
 
         document.addEventListener('DOMContentLoaded', () => {
             const projectGrid = document.getElementById('project-grid');
 
             if (!projectGrid) return;
 
-            // Har project ke liye ek card banayein
+            // Create a card for each project
             projects.forEach(project => {
-                // Main anchor tag (card)
+                // Main anchor tag (the card itself)
                 const card = document.createElement('a');
                 card.href = project.url;
                 card.className = 'project-card';
                 card.setAttribute('target', '_blank');
                 card.setAttribute('rel', 'noopener noreferrer');
                 
-                // Project ka naam
+                // Project's name
                 const nameSpan = document.createElement('span');
                 nameSpan.className = 'project-card-name';
                 nameSpan.textContent = project.name;
                 
-                // Project ki description
+                // Project's description
                 const descP = document.createElement('p');
                 descP.className = 'project-card-desc';
                 descP.textContent = project.description;
 
-                // Naam aur description ko card mein daalein
+                // Add the name and description to the card
                 card.appendChild(nameSpan);
                 card.appendChild(descP);
                 
-                // Card ko grid mein daalein
+                // Add the card to the grid
                 projectGrid.appendChild(card);
             });
             
-            // Sab cards par 3D tilt effect lagayein
+            // Apply the 3D tilt effect to all cards
             const cards = document.querySelectorAll(".project-card");
             if (cards.length > 0) {
                  VanillaTilt.init(cards, {
