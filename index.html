@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali's Innovation Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* New Cyberpunk/Futuristic Color Scheme */
+            --glow-color: hsl(185, 100%, 50%);
+            --glass-bg: rgba(10, 25, 40, 0.5);
+            --border-color: rgba(0, 255, 255, 0.3);
+            --text-color: #e0fbfc;
+            --secondary-text-color: #9fdee3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #020a12; /* Darker blue background */
+            background-image: 
+                radial-gradient(at 15% 85%, hsla(190, 90%, 25%, 0.3) 0px, transparent 50%),
+                radial-gradient(at 85% 15%, hsla(260, 95%, 30%, 0.25) 0px, transparent 50%);
+            color: var(--text-color);
+            overflow-x: hidden;
+            perspective: 1200px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .main-title {
+            font-family: 'Orbitron', sans-serif; /* More techy font */
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow:
+                0 0 5px var(--glow-color),
+                0 0 15px var(--glow-color),
+                0 0 25px var(--glow-color),
+                0 0 50px #fff;
+            animation: flicker-title 4s infinite linear;
+        }
+
+        @keyframes flicker-title {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow:
+                    0 0 5px var(--glow-color),
+                    0 0 10px var(--glow-color),
+                    0 0 20px var(--glow-color),
+                    0 0 40px #fff;
+            }
+            20%, 24%, 55% {        
+                text-shadow: none;
+            }
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 2.5rem;
+            justify-content: center;
+        }
+
+        .project-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2rem;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 180px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.1), inset 0 0 10px rgba(0, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.3s ease-out;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .project-card-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            color: var(--text-color);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-card-desc {
+            font-size: 0.9rem;
+            color: var(--secondary-text-color);
+            line-height: 1.4;
+        }
+
+        .project-card::before, .project-card::after {
+            content: '';
+            position: absolute;
+            height: 40%;
+            width: 2px;
+            background: var(--glow-color);
+            opacity: 0;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 5px var(--glow-color);
+        }
+
+        .project-card::before {
+            top: -20%; left: 10px;
+        }
+        .project-card::after {
+            bottom: -20%; right: 10px;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(0, 255, 255, 0.7);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.3), 0 0 50px rgba(0,0,0,0.5);
+        }
+        
+        .project-card:hover::before {
+            opacity: 1;
+            top: 30%;
+        }
+
+        .project-card:hover::after {
+            opacity: 1;
+            bottom: 30%;
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2rem;
+            }
+            .project-card-name {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="main-title">Faisal Ali's Innovation Hub 💗</h1>
+        <div class="project-grid" id="project-grid">
+            <!-- Project cards yahan JavaScript ke zariye add honge -->
+        </div>
+    </div>
+
+    <!-- 3D Tilt Effect Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+
+    <script>
+        // --- YAHAAN APNE PROJECTS ADD YA CHANGE KAREIN --- //
+        // Har project ke liye, 'name' mein project ka naam, 'url' mein uska link,
+        // aur 'description' mein uske baare mein likhein.
+        const projects = [
+            {
+                name: "Medication Tracker",
+                url: "https://faisalali555.github.io/Medication-Tracker-Web-App/", // Yahan apne project ka asal link daalein
+                description: "A web app to track your daily medications and schedules."
+            },
+            {
+                name: "Grocery Web App",
+                url: "https://faisalali555.github.io/Grocery-Web-App/", // Yahan apne project ka asal link daalein
+                description: "Manage your grocery lists smartly and efficiently."
+            },
+            {
+                name: "Glow Notes",
+                url: "https://faisalali555.github.io/Glow-Notes/", // Yahan apne project ka asal link daalein
+                description: "A simple and elegant note-taking app with a glow effect."
+            },
+            {
+                name: "The Aurora Calculators",
+                url: "https://faisalali555.github.io/The-Aurora-Calculators/", // Yahan apne project ka asal link daalein
+                description: "A collection of beautifully designed calculators for various needs."
+            }
+            // Naya project add karne ke liye, is jaisi line add karein:
+            // , { name: "Naya Project", url: "link-yahan.html", description: "Is project ki details." }
+        ];
+
+        // --- ISKE NEECHAY CODE CHANGE KARNE KI ZAROORAT NAHIN --- //
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const projectGrid = document.getElementById('project-grid');
+
+            if (!projectGrid) return;
+
+            // Har project ke liye ek card banayein
+            projects.forEach(project => {
+                // Main anchor tag (card)
+                const card = document.createElement('a');
+                card.href = project.url;
+                card.className = 'project-card';
+                card.setAttribute('target', '_blank');
+                card.setAttribute('rel', 'noopener noreferrer');
+                
+                // Project ka naam
+                const nameSpan = document.createElement('span');
+                nameSpan.className = 'project-card-name';
+                nameSpan.textContent = project.name;
+                
+                // Project ki description
+                const descP = document.createElement('p');
+                descP.className = 'project-card-desc';
+                descP.textContent = project.description;
+
+                // Naam aur description ko card mein daalein
+                card.appendChild(nameSpan);
+                card.appendChild(descP);
+                
+                // Card ko grid mein daalein
+                projectGrid.appendChild(card);
+            });
+            
+            // Sab cards par 3D tilt effect lagayein
+            const cards = document.querySelectorAll(".project-card");
+            if (cards.length > 0) {
+                 VanillaTilt.init(cards, {
+                    max: 10,
+                    speed: 400,
+                    glare: true,
+                    "max-glare": 0.2,
+                    scale: 1.03,
+                    perspective: 1500
+                });
+            }
+        });
+
+    </script>
+
+</body>
+</html>
