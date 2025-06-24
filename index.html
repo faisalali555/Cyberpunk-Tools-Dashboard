@@ -6,18 +6,19 @@
     <title>Faisal Ali's Creative Tools</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <!-- Tailwind CSS for utility classes -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
-            /* NEW: Clean, Minimalist & Professional Theme */
-            --bg-color: #f4f7f9;
-            --card-bg: #ffffff;
-            --text-color: #334155;
-            --heading-color: #0f172a;
-            --accent-color: #2563eb;
-            --shadow-color: rgba(100, 116, 139, 0.12);
+            /* Cheerful and Happy Color Scheme */
+            --bg-color-1: #ffecd2;
+            --bg-color-2: #fcb69f;
+            --card-bg: rgba(255, 255, 255, 0.45); /* Made slightly more transparent */
+            --text-color: #5d4954;
+            --heading-color: #b34180;
+            --glow-color: rgba(224, 99, 156, 0.5); /* A more prominent glow color */
+            --shadow-color: rgba(179, 65, 128, 0.15);
         }
 
         * {
@@ -27,154 +28,131 @@
         }
 
         body {
-            font-family: 'Manrope', sans-serif;
-            min-height: 100vh;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 2rem 0;
+            min-height: 100vh;
+            color: var(--text-color);
+            background: linear-gradient(45deg, var(--bg-color-1), var(--bg-color-2));
+            animation: gradient-animation 15s ease infinite;
+            background-size: 200% 200%;
+            overflow-x: hidden;
         }
         
-        .main-container {
-            position: relative;
-            z-index: 1;
-            width: 100%;
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .container {
             width: 90%;
-            max-width: 1100px;
+            max-width: 1200px;
             text-align: center;
-            padding: 2rem 0;
-            margin: 0 auto;
+            padding: 2rem;
         }
 
         .main-title {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: var(--heading-color);
-        }
-        
-        .subtitle {
-            font-size: 1.1rem;
+            font-family: 'Pacifico', cursive; /* Friendly, handwritten font */
+            font-size: 3.5rem;
             font-weight: 400;
-            max-width: 600px;
-            margin: 0 auto 3rem auto;
-            color: var(--text-color);
-            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            color: var(--heading-color);
+            /* Enhanced glow effect on the title */
+            text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.6), 0 0 15px var(--glow-color);
         }
-
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 2.5rem;
             justify-content: center;
         }
 
         .project-card {
             background: var(--card-bg);
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 20px; /* Softer, rounded corners */
             padding: 2rem;
             text-decoration: none;
             display: flex;
             flex-direction: column;
-            text-align: left;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
             min-height: 180px;
-            box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -2px var(--shadow-color);
-            transition: all 0.3s ease-out;
-            transform-style: preserve-3d; /* Required for tilt effect */
+            /* Enhanced glassy effect with stronger blur and shadow */
+            box-shadow: 0 8px 32px 0 var(--shadow-color), inset 0 1px 1px rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
         
         .project-card:hover {
-            transform: translateY(-10px) scale(1.03);
-            box-shadow: 0 20px 25px -5px var(--shadow-color), 0 8px 10px -6px var(--shadow-color);
-            border-color: var(--accent-color);
+            transform: translateY(-12px) scale(1.03);
+            /* Stronger glow on hover */
+            box-shadow: 0 16px 40px 0 var(--shadow-color), 0 0 30px 0 var(--glow-color);
         }
 
         .project-card-name {
-            font-size: 1.25rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4rem;
             color: var(--heading-color);
-            font-weight: 800;
-            margin-bottom: 0.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
         }
 
         .project-card-desc {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-color);
-            line-height: 1.6;
-            flex-grow: 1; /* Pushes the link to the bottom */
-        }
-        
-        .project-link {
-            display: inline-block;
-            margin-top: 1.5rem;
-            color: var(--accent-color);
-            font-weight: 600;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-        
-        .project-link:hover {
-            text-decoration: underline;
+            line-height: 1.5;
         }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .main-title {
-                font-size: 2.25rem;
-            }
-            .subtitle {
-                font-size: 1rem;
+                font-size: 2.8rem;
             }
             .project-card-name {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
         }
     </style>
 </head>
 <body>
-    
-    <div class="main-container">
-        <!-- Developer Credits Badge with a new clean style -->
-        <div id="developer-credits" class="fixed top-5 right-6 bg-white/80 backdrop-blur-sm text-sm text-slate-600 px-4 py-2 rounded-full border border-slate-200 shadow-md transition-all hover:shadow-lg hover:-translate-y-1 z-50">
-          Crafted by <strong>Muhammad Faisal Ali 💗</strong>
-        </div>
 
-        <div class="container">
-            <h1 class="main-title">Faisal Ali's Digital Workshop</h1>
-            <p class="subtitle">A curated collection of web applications and tools, designed and developed with passion and precision.</p>
-            <div class="project-grid" id="project-grid">
-                <!-- Project cards will be dynamically added here by JavaScript -->
-            </div>
+    <!-- Developer Credits Badge with a friendly style and glow -->
+    <div id="developer-credits" class="fixed top-5 right-6 bg-white/50 backdrop-blur-md text-sm text-pink-800 px-4 py-2 rounded-full shadow-xl shadow-pink-500/20 transition-all hover:shadow-2xl hover:shadow-pink-500/40 hover:-translate-y-1 z-50">
+      Made with by <strong>Muhammad Faisal Ali 💗</strong>
+    </div>
+
+    <div class="container">
+        <h1 class="main-title">Faisal Ali's Creative Tools</h1>
+        <div class="project-grid" id="project-grid">
+            <!-- Project cards will be dynamically added here by JavaScript -->
         </div>
     </div>
-    
-    <!-- Vanilla Tilt.js for 3D card effect -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 
     <script>
         // --- ADD OR CHANGE YOUR PROJECTS HERE --- //
+        // For each project, provide a 'name', its 'url', and a 'description'.
         const projects = [
             {
                 name: "Medication Tracker",
                 url: "https://faisalali555.github.io/Medication-Tracker-Web-App/",
-                description: "A friendly app to help you track your daily medications and schedules."
+                description: "A friendly app to help you track your daily medications."
             },
             {
                 name: "Grocery Web App",
                 url: "https://faisalali555.github.io/Grocery-Web-App/",
-                description: "Plan your shopping with this smart and simple grocery list manager."
+                description: "Plan your shopping with this smart and simple grocery list."
             },
             {
                 name: "Glow Notes",
                 url: "https://faisalali555.github.io/Glow-Notes/",
-                description: "A beautiful and elegant note-taking app for your bright ideas."
+                description: "A beautiful and elegant app for your bright ideas."
             },
             {
                 name: "The Aurora Calculators",
@@ -189,8 +167,10 @@
             {
                 name: "World Clock Live Time",
                 url: "https://faisalali555.github.io/World-Clock/",
-                description: "See the time around the world with a cheerful neon clock display."
+                description: "See the time around the world with a cheerful neon clock."
             }
+            // To add a new project, add a line like this:
+            // , { name: "New Project", url: "link-here.html", description: "Details about this project." }
         ];
 
         // --- NO NEED TO CHANGE THE CODE BELOW THIS LINE --- //
@@ -202,46 +182,24 @@
 
             // Create a card for each project
             projects.forEach(project => {
-                const card = document.createElement('div');
+                const card = document.createElement('a');
+                card.href = project.url;
                 card.className = 'project-card';
-                card.setAttribute('data-tilt', ''); // Add this for the tilt effect
+                card.setAttribute('target', '_blank');
+                card.setAttribute('rel', 'noopener noreferrer');
                 
-                const nameSpan = document.createElement('h2');
+                const nameSpan = document.createElement('span');
                 nameSpan.className = 'project-card-name';
                 nameSpan.textContent = project.name;
                 
                 const descP = document.createElement('p');
                 descP.className = 'project-card-desc';
                 descP.textContent = project.description;
-                
-                const link = document.createElement('a');
-                link.href = project.url;
-                link.className = 'project-link';
-                link.textContent = 'View Project →';
-                link.setAttribute('target', '_blank');
-                link.setAttribute('rel', 'noopener noreferrer');
-
-                // Link the entire card
-                card.addEventListener('click', () => {
-                    window.open(project.url, '_blank');
-                });
-                card.style.cursor = 'pointer';
-
 
                 card.appendChild(nameSpan);
                 card.appendChild(descP);
-                card.appendChild(link);
                 
                 projectGrid.appendChild(card);
-            });
-            
-            // Initialize Vanilla Tilt on the new cards
-            VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
-                max: 15,
-                speed: 400,
-                scale: 1.05,
-                glare: true,
-                "max-glare": 0.2
             });
         });
     </script>
