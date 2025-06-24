@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faisal Ali's Cyber Tools</title>
+    <title>Faisal Ali's Creative Tools</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS for utility classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
-            /* New Cyberpunk/Futuristic Color Scheme */
-            --glow-color: hsl(185, 100%, 50%);
-            --glass-bg: rgba(10, 25, 40, 0.5);
-            --border-color: rgba(0, 255, 255, 0.3);
-            --text-color: #e0fbfc;
-            --secondary-text-color: #9fdee3;
+            /* NEW: Clean, Minimalist & Professional Theme */
+            --bg-color: #f4f7f9;
+            --card-bg: #ffffff;
+            --text-color: #334155;
+            --heading-color: #0f172a;
+            --accent-color: #2563eb;
+            --shadow-color: rgba(100, 116, 139, 0.12);
         }
 
         * {
@@ -24,134 +27,110 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Manrope', sans-serif;
+            min-height: 100vh;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            overflow-x: hidden;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            background-color: #020a12; /* Darker blue background */
-            background-image: 
-                radial-gradient(at 15% 85%, hsla(190, 90%, 25%, 0.3) 0px, transparent 50%),
-                radial-gradient(at 85% 15%, hsla(260, 95%, 30%, 0.25) 0px, transparent 50%);
-            color: var(--text-color);
-            overflow-x: hidden;
-            perspective: 1200px;
+            padding: 2rem 0;
+        }
+        
+        .main-container {
+            position: relative;
+            z-index: 1;
+            width: 100%;
         }
 
         .container {
             width: 90%;
-            max-width: 1200px;
+            max-width: 1100px;
             text-align: center;
-            padding: 2rem;
+            padding: 2rem 0;
+            margin: 0 auto;
         }
 
         .main-title {
-            font-family: 'Orbitron', sans-serif; /* More techy font */
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 2.5rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-shadow:
-                0 0 5px var(--glow-color),
-                0 0 15px var(--glow-color),
-                0 0 25px var(--glow-color),
-                0 0 50px #fff;
-            animation: flicker-title 4s infinite linear;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--heading-color);
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto 3rem auto;
+            color: var(--text-color);
+            line-height: 1.6;
         }
 
-        @keyframes flicker-title {
-            0%, 18%, 22%, 25%, 53%, 57%, 100% {
-                text-shadow:
-                    0 0 5px var(--glow-color),
-                    0 0 10px var(--glow-color),
-                    0 0 20px var(--glow-color),
-                    0 0 40px #fff;
-            }
-            20%, 24%, 55% {        
-                text-shadow: none;
-            }
-        }
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
             justify-content: center;
         }
 
         .project-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 15px;
+            background: var(--card-bg);
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
             padding: 2rem;
             text-decoration: none;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+            text-align: left;
             min-height: 180px;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.1), inset 0 0 10px rgba(0, 255, 255, 0.1);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -2px var(--shadow-color);
             transition: all 0.3s ease-out;
-            position: relative;
-            transform-style: preserve-3d;
+            transform-style: preserve-3d; /* Required for tilt effect */
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 25px -5px var(--shadow-color), 0 8px 10px -6px var(--shadow-color);
+            border-color: var(--accent-color);
         }
 
         .project-card-name {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.3rem;
-            color: var(--text-color);
-            font-weight: 700;
-            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+            color: var(--heading-color);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
         }
 
         .project-card-desc {
-            font-size: 0.9rem;
-            color: var(--secondary-text-color);
-            line-height: 1.4;
-        }
-
-        .project-card::before, .project-card::after {
-            content: '';
-            position: absolute;
-            height: 40%;
-            width: 2px;
-            background: var(--glow-color);
-            opacity: 0;
-            transition: all 0.4s ease;
-            box-shadow: 0 0 5px var(--glow-color);
-        }
-
-        .project-card::before {
-            top: -20%; left: 10px;
-        }
-        .project-card::after {
-            bottom: -20%; right: 10px;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: rgba(0, 255, 255, 0.7);
-            box-shadow: 0 0 25px rgba(0, 255, 255, 0.3), 0 0 50px rgba(0,0,0,0.5);
+            font-size: 0.95rem;
+            color: var(--text-color);
+            line-height: 1.6;
+            flex-grow: 1; /* Pushes the link to the bottom */
         }
         
-        .project-card:hover::before {
-            opacity: 1;
-            top: 30%;
+        .project-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .project-link:hover {
+            text-decoration: underline;
         }
 
-        .project-card:hover::after {
-            opacity: 1;
-            bottom: 30%;
-        }
-
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             .main-title {
-                font-size: 2rem;
+                font-size: 2.25rem;
+            }
+            .subtitle {
+                font-size: 1rem;
             }
             .project-card-name {
                 font-size: 1.1rem;
@@ -160,53 +139,58 @@
     </style>
 </head>
 <body>
+    
+    <div class="main-container">
+        <!-- Developer Credits Badge with a new clean style -->
+        <div id="developer-credits" class="fixed top-5 right-6 bg-white/80 backdrop-blur-sm text-sm text-slate-600 px-4 py-2 rounded-full border border-slate-200 shadow-md transition-all hover:shadow-lg hover:-translate-y-1 z-50">
+          Crafted by <strong>Muhammad Faisal Ali 💗</strong>
+        </div>
 
-    <div class="container">
-        <h1 class="main-title">Faisal Ali's Innovation Hub 💗</h1>
-        <div class="project-grid" id="project-grid">
-            <!-- Project cards will be dynamically added here by JavaScript -->
+        <div class="container">
+            <h1 class="main-title">Faisal Ali's Digital Workshop</h1>
+            <p class="subtitle">A curated collection of web applications and tools, designed and developed with passion and precision.</p>
+            <div class="project-grid" id="project-grid">
+                <!-- Project cards will be dynamically added here by JavaScript -->
+            </div>
         </div>
     </div>
-
-    <!-- 3D Tilt Effect Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+    
+    <!-- Vanilla Tilt.js for 3D card effect -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 
     <script>
         // --- ADD OR CHANGE YOUR PROJECTS HERE --- //
-        // For each project, provide a 'name', its 'url', and a 'description'.
         const projects = [
             {
                 name: "Medication Tracker",
-                url: "https://faisalali555.github.io/Medication-Tracker-Web-App/", // Add your project's actual link here
-                description: "A web app to track your daily medications and schedules."
+                url: "https://faisalali555.github.io/Medication-Tracker-Web-App/",
+                description: "A friendly app to help you track your daily medications and schedules."
             },
             {
                 name: "Grocery Web App",
-                url: "https://faisalali555.github.io/Grocery-Web-App/", // Add your project's actual link here
-                description: "Manage your grocery lists smartly and efficiently."
+                url: "https://faisalali555.github.io/Grocery-Web-App/",
+                description: "Plan your shopping with this smart and simple grocery list manager."
             },
             {
                 name: "Glow Notes",
-                url: "https://faisalali555.github.io/Glow-Notes/", // Add your project's actual link here
-                description: "A simple and elegant note-taking app with a glow effect."
+                url: "https://faisalali555.github.io/Glow-Notes/",
+                description: "A beautiful and elegant note-taking app for your bright ideas."
             },
             {
                 name: "The Aurora Calculators",
-                url: "https://faisalali555.github.io/The-Aurora-Calculators/", // Add your project's actual link here
-                description: "A collection of beautifully designed calculators for various needs."
+                url: "https://faisalali555.github.io/The-Aurora-Calculators/",
+                description: "A collection of colorful calculators for your daily needs."
             },
             {
                 name: "Digital Matrix Countdown",
-                url: "https://faisalali555.github.io/Digital-Matrix-Countdown/", // Add your project's actual link here
-                description: "A countdown timer with a cool, digital rain effect."
+                url: "https://faisalali555.github.io/Digital-Matrix-Countdown/",
+                description: "Count down to special events with a cool, digital rain effect."
             },
             {
                 name: "World Clock Live Time",
-                url: "https://faisalali555.github.io/World-Clock/", // Add your project's actual link here
-                description: "A world clock with a cool, 3d neon effect."
-	        }
-	        // To add a new project, add a line like this:
-            // , { name: "New Project", url: "link-here.html", description: "Details about this project." }
+                url: "https://faisalali555.github.io/World-Clock/",
+                description: "See the time around the world with a cheerful neon clock display."
+            }
         ];
 
         // --- NO NEED TO CHANGE THE CODE BELOW THIS LINE --- //
@@ -218,45 +202,48 @@
 
             // Create a card for each project
             projects.forEach(project => {
-                // Main anchor tag (the card itself)
-                const card = document.createElement('a');
-                card.href = project.url;
+                const card = document.createElement('div');
                 card.className = 'project-card';
-                card.setAttribute('target', '_blank');
-                card.setAttribute('rel', 'noopener noreferrer');
+                card.setAttribute('data-tilt', ''); // Add this for the tilt effect
                 
-                // Project's name
-                const nameSpan = document.createElement('span');
+                const nameSpan = document.createElement('h2');
                 nameSpan.className = 'project-card-name';
                 nameSpan.textContent = project.name;
                 
-                // Project's description
                 const descP = document.createElement('p');
                 descP.className = 'project-card-desc';
                 descP.textContent = project.description;
+                
+                const link = document.createElement('a');
+                link.href = project.url;
+                link.className = 'project-link';
+                link.textContent = 'View Project →';
+                link.setAttribute('target', '_blank');
+                link.setAttribute('rel', 'noopener noreferrer');
 
-                // Add the name and description to the card
+                // Link the entire card
+                card.addEventListener('click', () => {
+                    window.open(project.url, '_blank');
+                });
+                card.style.cursor = 'pointer';
+
+
                 card.appendChild(nameSpan);
                 card.appendChild(descP);
+                card.appendChild(link);
                 
-                // Add the card to the grid
                 projectGrid.appendChild(card);
             });
             
-            // Apply the 3D tilt effect to all cards
-            const cards = document.querySelectorAll(".project-card");
-            if (cards.length > 0) {
-                 VanillaTilt.init(cards, {
-                    max: 10,
-                    speed: 400,
-                    glare: true,
-                    "max-glare": 0.2,
-                    scale: 1.03,
-                    perspective: 1500
-                });
-            }
+            // Initialize Vanilla Tilt on the new cards
+            VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+                max: 15,
+                speed: 400,
+                scale: 1.05,
+                glare: true,
+                "max-glare": 0.2
+            });
         });
-
     </script>
 
 </body>
